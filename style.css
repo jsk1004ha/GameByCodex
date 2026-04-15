@@ -43,6 +43,11 @@ body.high-contrast {
   --panel-strong: rgba(0, 0, 0, 0.96);
 }
 
+body.high-contrast .hud-detail,
+body.high-contrast .small-note {
+  color: rgba(240, 247, 255, 0.95);
+}
+
 button,
 input,
 select {
@@ -70,6 +75,12 @@ select:focus-visible,
 input:focus-visible {
   border-color: rgba(255, 255, 255, 0.72);
   outline: none;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(78, 216, 255, 0.45);
 }
 
 button:hover {
@@ -121,6 +132,10 @@ button:hover {
   flex: 3 1 520px;
 }
 
+.hud-group--context {
+  flex: 2 1 360px;
+}
+
 .hud-block {
   min-width: 108px;
   flex: 1 1 0;
@@ -149,6 +164,14 @@ button:hover {
   text-transform: uppercase;
 }
 
+.hud-detail {
+  display: block;
+  margin-top: 0.38rem;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
 .meter {
   position: relative;
   margin-top: 0.48rem;
@@ -171,6 +194,18 @@ button:hover {
 .meter-fill--dash { background: linear-gradient(90deg, #8df9d7, #38ceff); }
 .meter-fill--overdrive { background: linear-gradient(90deg, #9d71ff, #ff7dc8); }
 .meter-fill--objective { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green)); }
+
+#threat-label[data-threat="high"] {
+  color: var(--accent-crimson);
+}
+
+#threat-label[data-threat="medium"] {
+  color: var(--accent-amber);
+}
+
+#threat-label[data-threat="low"] {
+  color: var(--accent-green);
+}
 
 .playfield-shell {
   position: relative;

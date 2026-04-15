@@ -154,6 +154,9 @@
     hud: byId("hud"),
     chapterLabel: byId("chapter-label"),
     objectiveLabel: byId("objective-label"),
+    objectiveDetailLabel: byId("objective-detail-label"),
+    contextLabel: byId("context-label"),
+    threatLabel: byId("threat-label"),
     objectiveFill: byId("objective-fill"),
     scoreLabel: byId("score-label"),
     timeLabel: byId("time-label"),
@@ -2598,6 +2601,10 @@
     if (!run) {
       dom.chapterLabel.textContent = "Stand by";
       dom.objectiveLabel.textContent = "Wake the relay lattice.";
+      dom.objectiveDetailLabel.textContent = "Step into the ring and hold E to sync.";
+      dom.contextLabel.textContent = "Move with WASD. Enter the ring and hold E.";
+      dom.threatLabel.textContent = "Nominal";
+      dom.threatLabel.dataset.threat = "low";
       dom.objectiveFill.style.width = "0%";
       dom.scoreLabel.textContent = "0";
       dom.timeLabel.textContent = "00:00";
@@ -2615,8 +2622,22 @@
       return;
     }
     const player = run.player;
+    const hpRatio = clamp(Math.max(0, player.hp) / player.maxHp, 0, 1);
+    const barrierRatio = clamp(Math.max(0, player.barrier) / player.maxBarrier, 0, 1);
+    const dangerDistance = 180;
+    const nearbyEnemies = run.enemies.filter((enemy) => Math.hypot(enemy.x - player.x, enemy.y - player.y) <= dangerDistance).length;
+    const dangerScore = (1 - hpRatio) * 0.5 + (1 - barrierRatio) * 0.18 + (nearbyEnemies >= 5 ? 0.25 : nearbyEnemies * 0.05);
+    const threatLevel = dangerScore >= 0.58 ? "high" : dangerScore >= 0.32 ? "medium" : "low";
+    const threatText = threatLevel === "high" ? "Critical" : threatLevel === "medium" ? "Elevated" : "Nominal";
+    const immediateAction = player.hp <= player.maxHp * 0.35 && player.repairCharges > 0
+      ? "Hull critical. Press R to consume a repair charge."
+      : (run.objectiveDetail || "Track the objective marker and maintain spacing.");
     dom.chapterLabel.textContent = run.chapterName;
     dom.objectiveLabel.textContent = run.objectiveLabel;
+    dom.objectiveDetailLabel.textContent = run.objectiveDetail;
+    dom.contextLabel.textContent = immediateAction;
+    dom.threatLabel.textContent = threatText;
+    dom.threatLabel.dataset.threat = threatLevel;
     dom.objectiveFill.style.width = `${Math.round(clamp(run.objectiveProgress, 0, 1) * 100)}%`;
     dom.scoreLabel.textContent = formatScore(run.score);
     dom.timeLabel.textContent = formatTime(run.elapsed);
@@ -2626,8 +2647,8 @@
     dom.dashLabel.textContent = player.dashCooldown <= 0 ? "Ready" : `${player.dashCooldown.toFixed(1)}s`;
     dom.overdriveLabel.textContent = player.overdriveUnlocked ? (player.overdriveActive > 0 ? "Active" : `${Math.round(player.overdrive)}%`) : "Locked";
     dom.repairsLabel.textContent = String(player.repairCharges);
-      dom.hpFill.style.width = `${Math.round(clamp(Math.max(0, player.hp) / player.maxHp, 0, 1) * 100)}%`;
-      dom.barrierFill.style.width = `${Math.round(clamp(Math.max(0, player.barrier) / player.maxBarrier, 0, 1) * 100)}%`;
+      dom.hpFill.style.width = `${Math.round(hpRatio * 100)}%`;
+      dom.barrierFill.style.width = `${Math.round(barrierRatio * 100)}%`;
     dom.heatFill.style.width = `${Math.round(clamp(player.heat / player.heatMax, 0, 1) * 100)}%`;
     dom.dashFill.style.width = `${Math.round((1 - clamp(player.dashCooldown / player.dashMax, 0, 1)) * 100)}%`;
     dom.overdriveFill.style.width = `${Math.round(clamp(player.overdrive / 100, 0, 1) * 100)}%`;
