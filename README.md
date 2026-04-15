@@ -26,9 +26,10 @@ No network connection, build step, dependency install, or external assets are re
 
 - Three-chapter action run with a clear start, escalation, climax, and ending
 - Sequential objective changes: relay defense, convoy escort, stabilizer breach, boss fight
+- Layered combat HUD with persistent stats, immediate action guidance, and live threat level reads
 - Eight upgrade perks with three draft moments
 - Three difficulty settings, persistent best score / best clear time / clear count
-- Audio controls, mute, high contrast HUD, large HUD, reduced shake, reduced flash
+- Audio controls, mute, high contrast HUD, large HUD, reduced shake, reduced flash, and stronger keyboard focus outlines
 - Procedural visuals and Web Audio generated sound effects only
 
 ## Saving
@@ -39,4 +40,3 @@ The game stores settings and records in local storage under `null-relay-save-v1`
 
 - Desktop browser with keyboard and mouse
 - Recent Chromium, Firefox, or Safari build
-
