@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,13 +11,13 @@
     <header class="hud" id="hud">
       <div class="hud-group hud-group--primary">
         <div class="hud-block">
-          <span class="hud-label">Chapter</span>
-          <strong id="chapter-label">Stand by</strong>
+          <span class="hud-label">챕터</span>
+          <strong id="chapter-label">대기 중</strong>
         </div>
         <div class="hud-block hud-block--wide">
-          <span class="hud-label">Objective</span>
-          <strong id="objective-label">Wake the relay lattice.</strong>
-          <span class="hud-detail" id="objective-detail-label">Step into the ring and hold E to sync.</span>
+          <span class="hud-label">목표</span>
+          <strong id="objective-label">릴레이 격자를 기동하세요.</strong>
+          <span class="hud-detail" id="objective-detail-label">링 안으로 들어가 E를 길게 눌러 동기화하세요.</span>
           <div class="meter">
             <div class="meter-fill meter-fill--objective" id="objective-fill"></div>
           </div>
@@ -25,69 +25,69 @@
       </div>
       <div class="hud-group hud-group--context" aria-live="polite">
         <div class="hud-block hud-block--wide">
-          <span class="hud-label">Immediate Action</span>
-          <strong id="context-label">Move with WASD. Enter the ring and hold E.</strong>
+          <span class="hud-label">즉시 행동</span>
+          <strong id="context-label">WASD로 이동하세요. 링 안에 들어가 E를 길게 누르세요.</strong>
         </div>
         <div class="hud-block">
-          <span class="hud-label">Threat</span>
-          <strong id="threat-label">Nominal</strong>
+          <span class="hud-label">위협</span>
+          <strong id="threat-label">안정</strong>
         </div>
       </div>
       <div class="hud-group">
         <div class="hud-block">
-          <span class="hud-label">Score</span>
+          <span class="hud-label">점수</span>
           <strong id="score-label">0</strong>
         </div>
         <div class="hud-block">
-          <span class="hud-label">Time</span>
+          <span class="hud-label">시간</span>
           <strong id="time-label">00:00</strong>
         </div>
       </div>
       <div class="hud-group hud-group--stats">
         <div class="hud-block stat-block">
-          <span class="hud-label">Hull</span>
+          <span class="hud-label">선체</span>
           <strong id="hp-label">100</strong>
           <div class="meter">
             <div class="meter-fill meter-fill--hp" id="hp-fill"></div>
           </div>
         </div>
         <div class="hud-block stat-block">
-          <span class="hud-label">Barrier</span>
+          <span class="hud-label">배리어</span>
           <strong id="barrier-label">60</strong>
           <div class="meter">
             <div class="meter-fill meter-fill--barrier" id="barrier-fill"></div>
           </div>
         </div>
         <div class="hud-block stat-block">
-          <span class="hud-label">Heat</span>
+          <span class="hud-label">열기</span>
           <strong id="heat-label">0%</strong>
           <div class="meter">
             <div class="meter-fill meter-fill--heat" id="heat-fill"></div>
           </div>
         </div>
         <div class="hud-block stat-block">
-          <span class="hud-label">Dash</span>
-          <strong id="dash-label">Ready</strong>
+          <span class="hud-label">대시</span>
+          <strong id="dash-label">준비 완료</strong>
           <div class="meter">
             <div class="meter-fill meter-fill--dash" id="dash-fill"></div>
           </div>
         </div>
         <div class="hud-block stat-block">
-          <span class="hud-label">Overdrive</span>
-          <strong id="overdrive-label">Locked</strong>
+          <span class="hud-label">오버드라이브</span>
+          <strong id="overdrive-label">잠김</strong>
           <div class="meter">
             <div class="meter-fill meter-fill--overdrive" id="overdrive-fill"></div>
           </div>
         </div>
         <div class="hud-block">
-          <span class="hud-label">Repairs</span>
+          <span class="hud-label">수리</span>
           <strong id="repairs-label">2</strong>
         </div>
       </div>
     </header>
 
     <main class="playfield-shell">
-      <canvas id="game-canvas" width="1280" height="720" aria-label="Null Relay game canvas"></canvas>
+      <canvas id="game-canvas" width="1280" height="720" aria-label="널 릴레이 게임 캔버스"></canvas>
 
       <div class="floating-banner" id="chapter-banner" aria-live="polite">
         <strong id="banner-title"></strong>
@@ -99,46 +99,46 @@
       <section class="screen screen--title is-active" id="title-screen">
         <div class="screen-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Single-player tactical action run</p>
+            <p class="eyebrow">싱글플레이 전술 액션 런</p>
             <h1>Null Relay</h1>
-            <p class="tagline">Punch a path through the blackout sectors and re-ignite the last city core.</p>
+            <p class="tagline">정전 구역을 돌파해 마지막 도시 코어를 다시 점화하세요.</p>
             <div class="button-row">
-              <button id="start-btn" class="action action--primary" type="button">Start Run</button>
-              <button id="options-btn" class="action" type="button">Options</button>
-              <button id="credits-btn" class="action" type="button">Credits</button>
+              <button id="start-btn" class="action action--primary" type="button">런 시작</button>
+              <button id="options-btn" class="action" type="button">옵션</button>
+              <button id="credits-btn" class="action" type="button">크레딧</button>
             </div>
           </div>
 
           <div class="title-panels">
             <section class="info-panel">
-              <h2>Run Profile</h2>
+              <h2>런 프로필</h2>
               <label class="field">
-                <span>Difficulty</span>
+                <span>난이도</span>
                 <select id="difficulty-select">
-                  <option value="story">Story</option>
-                  <option value="operative" selected>Operative</option>
-                  <option value="overclock">Overclock</option>
+                  <option value="story">스토리</option>
+                  <option value="operative" selected>오퍼레이터</option>
+                  <option value="overclock">오버클럭</option>
                 </select>
               </label>
               <div class="stat-list">
-                <div><span>Best score</span><strong id="best-score">0</strong></div>
-                <div><span>Best clear</span><strong id="best-time">--:--</strong></div>
-                <div><span>Clears</span><strong id="clear-count">0</strong></div>
+                <div><span>최고 점수</span><strong id="best-score">0</strong></div>
+                <div><span>최단 클리어</span><strong id="best-time">--:--</strong></div>
+                <div><span>클리어 횟수</span><strong id="clear-count">0</strong></div>
               </div>
-              <p class="small-note" id="difficulty-note">Overclock unlocks after your first clear.</p>
+              <p class="small-note" id="difficulty-note">오버클럭은 첫 클리어 후 해금됩니다.</p>
             </section>
 
             <section class="info-panel">
-              <h2>Controls</h2>
+              <h2>조작법</h2>
               <ul class="controls-list">
-                <li><span>Move</span><strong>WASD</strong></li>
-                <li><span>Aim / Fire</span><strong>Mouse / Left click</strong></li>
-                <li><span>Dash</span><strong>Space</strong></li>
-                <li><span>Interact</span><strong>E</strong></li>
-                <li><span>Repair</span><strong>R</strong></li>
-                <li><span>Overdrive</span><strong>Q</strong></li>
-                <li><span>Pause</span><strong>Esc</strong></li>
-                <li><span>Fullscreen</span><strong>F</strong></li>
+                <li><span>이동</span><strong>WASD</strong></li>
+                <li><span>조준 / 발사</span><strong>마우스 / 좌클릭</strong></li>
+                <li><span>대시</span><strong>Space</strong></li>
+                <li><span>상호작용</span><strong>E</strong></li>
+                <li><span>수리</span><strong>R</strong></li>
+                <li><span>오버드라이브</span><strong>Q</strong></li>
+                <li><span>일시정지</span><strong>Esc</strong></li>
+                <li><span>전체화면</span><strong>F</strong></li>
               </ul>
             </section>
           </div>
@@ -148,53 +148,53 @@
       <section class="screen screen--panel" id="options-screen" aria-hidden="true">
         <div class="panel-shell">
           <div class="panel-copy">
-            <p class="eyebrow">Options</p>
-            <h2>Signal Tuning</h2>
-            <p>Everything here saves locally.</p>
+            <p class="eyebrow">옵션</p>
+            <h2>신호 조정</h2>
+            <p>여기 설정은 모두 로컬에 저장됩니다.</p>
           </div>
           <div class="panel-form">
             <label class="field">
-              <span>Difficulty</span>
+              <span>난이도</span>
               <select id="options-difficulty-select">
-                <option value="story">Story</option>
-                <option value="operative">Operative</option>
-                <option value="overclock">Overclock</option>
+                <option value="story">스토리</option>
+                <option value="operative">오퍼레이터</option>
+                <option value="overclock">오버클럭</option>
               </select>
             </label>
 
             <label class="field">
-              <span>Master volume</span>
+              <span>마스터 볼륨</span>
               <input id="master-volume" type="range" min="0" max="1" step="0.01" value="0.8">
             </label>
 
             <label class="field">
-              <span>Effects volume</span>
+              <span>효과음 볼륨</span>
               <input id="sfx-volume" type="range" min="0" max="1" step="0.01" value="0.8">
             </label>
 
             <label class="toggle">
               <input id="mute-audio" type="checkbox">
-              <span>Mute audio</span>
+              <span>오디오 음소거</span>
             </label>
             <label class="toggle">
               <input id="high-contrast" type="checkbox">
-              <span>High contrast HUD</span>
+              <span>고대비 HUD</span>
             </label>
             <label class="toggle">
               <input id="reduce-shake" type="checkbox">
-              <span>Reduce screen shake</span>
+              <span>화면 흔들림 감소</span>
             </label>
             <label class="toggle">
               <input id="reduce-flash" type="checkbox">
-              <span>Reduce flashes</span>
+              <span>번쩍임 감소</span>
             </label>
             <label class="toggle">
               <input id="large-hud" type="checkbox">
-              <span>Large HUD</span>
+              <span>HUD 확대</span>
             </label>
           </div>
           <div class="button-row">
-            <button id="options-back-btn" class="action action--primary" type="button">Back</button>
+            <button id="options-back-btn" class="action action--primary" type="button">뒤로</button>
           </div>
         </div>
       </section>
@@ -202,67 +202,67 @@
       <section class="screen screen--panel" id="credits-screen" aria-hidden="true">
         <div class="panel-shell">
           <div class="panel-copy">
-            <p class="eyebrow">Credits</p>
-            <h2>Transmission Ledger</h2>
-            <p>Direction, systems, UI, art, audio, and code were assembled in one pass for this standalone browser build.</p>
+            <p class="eyebrow">크레딧</p>
+            <h2>전송 기록</h2>
+            <p>이 독립 실행 브라우저 빌드를 위해 기획, 시스템, UI, 아트, 오디오, 코드를 한 번에 제작했습니다.</p>
           </div>
           <div class="info-panel info-panel--credits">
             <div class="stat-list">
-              <div><span>Game</span><strong>Null Relay</strong></div>
-              <div><span>Format</span><strong>Vanilla HTML / CSS / JavaScript</strong></div>
-              <div><span>Audio</span><strong>Web Audio synthesis</strong></div>
-              <div><span>Save</span><strong>Local storage only</strong></div>
+              <div><span>게임</span><strong>Null Relay</strong></div>
+              <div><span>형식</span><strong>순수 HTML / CSS / JavaScript</strong></div>
+              <div><span>오디오</span><strong>Web Audio 합성</strong></div>
+              <div><span>저장</span><strong>로컬 저장소 전용</strong></div>
             </div>
-            <p class="small-note">No external frameworks, assets, fonts, servers, or network calls are required.</p>
+            <p class="small-note">외부 프레임워크, 에셋, 폰트, 서버, 네트워크 호출이 필요 없습니다.</p>
           </div>
           <div class="button-row">
-            <button id="credits-back-btn" class="action action--primary" type="button">Back</button>
+            <button id="credits-back-btn" class="action action--primary" type="button">뒤로</button>
           </div>
         </div>
       </section>
 
       <section class="overlay" id="pause-overlay" aria-hidden="true">
         <div class="overlay-panel">
-          <p class="eyebrow">Paused</p>
-          <h2>Signal hold</h2>
-          <p>Take a breath. The relay stays where you left it.</p>
+          <p class="eyebrow">일시정지d</p>
+          <h2>신호 대기</h2>
+          <p>잠시 숨을 고르세요. 릴레이는 멈춘 지점 그대로 유지됩니다.</p>
           <div class="info-panel info-panel--pause">
             <div class="stat-list">
-              <div><span>Objective</span><strong id="pause-objective">Wake the relay lattice.</strong></div>
-              <div><span>Immediate Read</span><strong id="pause-detail">Move, fire, dash, and interact.</strong></div>
+              <div><span>목표</span><strong id="pause-objective">릴레이 격자를 기동하세요.</strong></div>
+              <div><span>즉시 안내</span><strong id="pause-detail">이동, fire, dash, and interact.</strong></div>
             </div>
-            <p class="small-note">WASD move, Left click fire, Space dash, E interact, R repair, Q overdrive.</p>
+            <p class="small-note">WASD 이동, 좌클릭 발사, Space 대시, E 상호작용, R 수리, Q 오버드라이브.</p>
           </div>
           <div class="button-column">
-            <button id="resume-btn" class="action action--primary" type="button">Resume</button>
-            <button id="restart-btn" class="action" type="button">Restart Run</button>
-            <button id="back-title-btn" class="action" type="button">Back to Title</button>
+            <button id="resume-btn" class="action action--primary" type="button">계속하기</button>
+            <button id="restart-btn" class="action" type="button">런 재시작</button>
+            <button id="back-title-btn" class="action" type="button">뒤로 to Title</button>
           </div>
         </div>
       </section>
 
       <section class="overlay" id="upgrade-overlay" aria-hidden="true">
         <div class="overlay-panel overlay-panel--wide">
-          <p class="eyebrow">Upgrade Draft</p>
-          <h2>Sync one relay perk</h2>
+          <p class="eyebrow">업그레이드 선택</p>
+          <h2>릴레이 특성 1개 동기화</h2>
           <div class="upgrade-grid" id="upgrade-grid"></div>
-          <p class="small-note">Pick with the mouse or press 1, 2, or 3.</p>
+          <p class="small-note">마우스로 선택하거나 1, 2, 3 키를 누르세요.</p>
         </div>
       </section>
 
       <section class="overlay" id="result-overlay" aria-hidden="true">
         <div class="overlay-panel">
-          <p class="eyebrow" id="result-kicker">Run complete</p>
-          <h2 id="result-title">The city breathes again.</h2>
-          <p id="result-copy">The relay core came back online.</p>
+          <p class="eyebrow" id="result-kicker">런 완료</p>
+          <h2 id="result-title">도시가 다시 숨을 쉽니다.</h2>
+          <p id="result-copy">릴레이 코어가 다시 가동되었습니다.</p>
           <div class="stat-list stat-list--result">
-            <div><span>Score</span><strong id="result-score">0</strong></div>
-            <div><span>Time</span><strong id="result-time">00:00</strong></div>
-            <div><span>Medal</span><strong id="result-medal">Bronze</strong></div>
+            <div><span>점수</span><strong id="result-score">0</strong></div>
+            <div><span>시간</span><strong id="result-time">00:00</strong></div>
+            <div><span>메달</span><strong id="result-medal">브론즈</strong></div>
           </div>
           <div class="button-column">
-            <button id="result-restart-btn" class="action action--primary" type="button">Play Again</button>
-            <button id="result-title-btn" class="action" type="button">Return to Title</button>
+            <button id="result-restart-btn" class="action action--primary" type="button">다시 플레이</button>
+            <button id="result-title-btn" class="action" type="button">타이틀로 돌아가기</button>
           </div>
         </div>
       </section>

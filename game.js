@@ -56,7 +56,7 @@
     },
     difficulties: {
       story: {
-        label: "Story",
+        label: "스토리",
         enemyHp: 0.86,
         enemyDamage: 0.8,
         playerDamage: 1.18,
@@ -66,7 +66,7 @@
         scoreMod: 0.9,
       },
       operative: {
-        label: "Operative",
+        label: "오퍼레이터",
         enemyHp: 1,
         enemyDamage: 1,
         playerDamage: 1,
@@ -76,7 +76,7 @@
         scoreMod: 1,
       },
       overclock: {
-        label: "Overclock",
+        label: "오버클럭",
         enemyHp: 1.2,
         enemyDamage: 1.22,
         playerDamage: 0.94,
@@ -98,44 +98,44 @@
     },
     upgrades: {
       piercing: {
-        name: "Phase Piercer",
-        short: "Piercing",
-        desc: "Shots pierce two extra targets and gain 8% damage.",
+        name: "위상 관통자",
+        short: "관통",
+        desc: "사격이 추가로 2개 대상을 관통하고 피해가 8% 증가합니다.",
       },
       chain: {
-        name: "Arc Lattice",
-        short: "Chain Arc",
-        desc: "Weapon hits jump to nearby enemies for extra shock damage.",
+        name: "아크 격자",
+        short: "연쇄 아크",
+        desc: "무기 타격이 주변 적에게 튕겨 추가 감전 피해를 줍니다.",
       },
       dashShield: {
-        name: "Dash Mantle",
-        short: "Dash Shield",
-        desc: "Dashing grants a stronger barrier pulse and a longer invulnerability edge.",
+        name: "대시 맨틀",
+        short: "대시 실드",
+        desc: "대시 시 더 강한 배리어 파동과 더 긴 무적 시간이 부여됩니다.",
       },
       quickCool: {
-        name: "Cold Sink",
-        short: "Quick Cool",
-        desc: "Heat dissipates faster and overheat lock clears sooner.",
+        name: "콜드 싱크",
+        short: "급속 냉각",
+        desc: "열기가 더 빨리 식고 과열 잠금이 더 빨리 해제됩니다.",
       },
       barrierBloom: {
-        name: "Barrier Bloom",
-        short: "Barrier Bloom",
-        desc: "Objectives and elite kills restore barrier and expand barrier capacity.",
+        name: "배리어 블룸",
+        short: "배리어 블룸",
+        desc: "목표 달성과 엘리트 처치 시 배리어가 회복되고 최대치가 증가합니다.",
       },
       overdriveExtended: {
-        name: "Overdrive Rotor",
+        name: "오버드라이브 로터",
         short: "Overdrive+",
-        desc: "Overdrive lasts longer and charges faster from combat actions.",
+        desc: "오버드라이브 지속시간이 늘고 전투 행동으로 더 빨리 충전됩니다.",
       },
       captureArray: {
-        name: "Capture Array",
-        short: "Fast Sync",
-        desc: "Relay, rail, and stabilizer interactions complete much faster.",
+        name: "캡처 어레이",
+        short: "빠른 동기화",
+        desc: "릴레이, 레일, 안정화 장치 상호작용이 훨씬 빨리 완료됩니다.",
       },
       lastStand: {
-        name: "Edge Protocol",
-        short: "Last Stand",
-        desc: "Low hull boosts fire rate, damage, and movement speed.",
+        name: "엣지 프로토콜",
+        short: "최후의 저항",
+        desc: "선체가 낮을 때 연사력, 피해량, 이동속도가 증가합니다.",
       },
     },
     enemyStats: {
@@ -471,7 +471,7 @@
     dom.clearCount.textContent = String(state.records.clears || 0);
 
     const locked = !state.records.unlockedOverclock;
-    const note = locked ? "Overclock unlocks after your first clear." : "Overclock is armed.";
+    const note = locked ? "오버클럭은 첫 클리어 후 해금됩니다." : "오버클럭 사용 가능";
     dom.difficultyNote.textContent = note;
 
     [dom.difficultySelect, dom.optionsDifficultySelect].forEach((select) => {
@@ -598,7 +598,7 @@
       upgrades: [],
       upgradePool: Object.keys(config.upgrades),
       chapterId: "foundry",
-      chapterName: "Foundry Wake",
+      chapterName: "주조소 기동",
       objectiveLabel: "",
       objectiveProgress: 0,
       objectiveDetail: "",
@@ -657,7 +657,7 @@
   function beginChapterFoundry(run) {
     resetCombatSpace(run);
     run.chapterId = "foundry";
-    run.chapterName = "Foundry Wake";
+    run.chapterName = "주조소 기동";
     run.player.x = 340;
     run.player.y = 470;
     run.stage = {
@@ -671,14 +671,14 @@
       spawnTimer: 1.2,
     };
     updateFoundryObjective(run);
-    showBanner("Foundry Wake", "Prime the amber relays and hold the ring.");
-    showToast("Move with WASD. Enter the relay ring and hold E to wake the relay.");
+    showBanner("주조소 기동", "호박색 릴레이를 예열하고 링을 유지하세요.");
+    showToast("WASD로 이동하세요. 릴레이 링으로 들어가 E를 길게 눌러 기동하세요.");
   }
 
   function beginChapterRail(run) {
     resetCombatSpace(run);
     run.chapterId = "rail";
-    run.chapterName = "Rail Siege";
+    run.chapterName = "레일 공방";
     run.helpTimer = 8;
     run.player.x = 1180;
     run.player.y = 700;
@@ -713,14 +713,14 @@
       lastStormOrientation: "vertical",
     };
     updateRailObjective(run);
-    showBanner("Rail Siege", "Escort the signal cart to the core tracks.");
-    showToast("Protect the cart. Hold E at each junction to patch the rail.");
+    showBanner("레일 공방", "신호 카트를 코어 선로까지 호위하세요.");
+    showToast("카트를 보호하세요. 각 분기점에서 E를 길게 눌러 레일을 복구하세요.");
   }
 
   function beginChapterCore(run) {
     resetCombatSpace(run);
     run.chapterId = "core";
-    run.chapterName = "Corefall";
+    run.chapterName = "코어 붕괴";
     run.helpTimer = 8;
     run.player.x = 1760;
     run.player.y = 660;
@@ -737,8 +737,8 @@
       pulseTimer: 12,
     };
     updateCoreObjective(run);
-    showBanner("Corefall", "Breach the crimson stabilizers.");
-    showToast("Hold E near a stabilizer to expose it, then fire before the shell seals.");
+    showBanner("코어 붕괴", "진홍색 안정화 장치를 돌파하세요.");
+    showToast("안정화 장치 근처에서 E를 길게 눌러 노출시키고, 닫히기 전에 공격하세요.");
   }
 
   function beginBoss(run) {
@@ -775,7 +775,7 @@
       hitFlash: 0,
     };
     updateCoreObjective(run);
-    showBanner("Relay Warden", "Phase through the pulses and finish the core.");
+    showBanner("릴레이 워든", "파동을 돌파하고 코어를 마무리하세요.");
     audio.play("threat");
   }
 
@@ -891,19 +891,19 @@
     const stage = run.stage;
     const relay = stage.relays[stage.activeIndex];
     if (!relay) {
-      run.objectiveLabel = "All relays stabilized";
+      run.objectiveLabel = "모든 릴레이 안정화 완료";
       run.objectiveProgress = 1;
-      run.objectiveDetail = "Prepare for the rail push.";
+      run.objectiveDetail = "레일 돌파를 준비하세요.";
       return;
     }
     if (!relay.started) {
       run.objectiveLabel = `Wake relay ${stage.activeIndex + 1} of ${stage.relays.length}`;
       run.objectiveProgress = relay.interact;
-      run.objectiveDetail = "Step into the ring and hold E to start the lattice.";
+      run.objectiveDetail = "링 안으로 들어가 E를 길게 눌러 격자를 시작하세요.";
     } else {
       run.objectiveLabel = `Hold relay ${stage.activeIndex + 1} of ${stage.relays.length}`;
       run.objectiveProgress = relay.progress;
-      run.objectiveDetail = "Stay inside the objective ring while it stabilizes.";
+      run.objectiveDetail = "안정화가 끝날 때까지 목표 링 안을 유지하세요.";
     }
   }
 
@@ -913,7 +913,7 @@
     if (stage.phase === "patch" && stage.currentCheckpoint) {
       run.objectiveLabel = `Patch rail ${stage.checkpointCount + 1} of 3`;
       run.objectiveProgress = stage.patchProgress;
-      run.objectiveDetail = "Hold E at the junction while the cart shields cool.";
+      run.objectiveDetail = "카트 실드가 식는 동안 분기점에서 E를 길게 누르세요.";
       return;
     }
     if (stage.phase === "moving") {
@@ -922,33 +922,33 @@
       const distRemaining = Math.hypot(target.x - cart.x, target.y - cart.y);
       run.objectiveLabel = `Escort cart to checkpoint ${Math.min(3, stage.checkpointCount + 1)}`;
       run.objectiveProgress = 1 - clamp(distRemaining / segmentLen, 0, 1);
-      run.objectiveDetail = "Keep enemies and storm bands away from the cart.";
+      run.objectiveDetail = "적과 폭풍 지대를 카트에서 떼어내세요.";
     }
   }
 
   function updateCoreObjective(run) {
     const stage = run.stage;
     if (stage.phase === "boss" && run.boss) {
-      run.objectiveLabel = "Destroy Relay Warden";
+      run.objectiveLabel = "릴레이 워든 파괴";
       run.objectiveProgress = 1 - clamp(run.boss.hp / run.boss.maxHp, 0, 1);
-      run.objectiveDetail = "Dash through pulses, punish the core, and survive the sweep.";
+      run.objectiveDetail = "파동을 대시로 돌파하고 코어를 공격하며 소탕을 버티세요.";
       return;
     }
     const stabilizer = stage.stabilizers[stage.activeIndex];
     if (!stabilizer) {
-      run.objectiveLabel = "Core breach complete";
+      run.objectiveLabel = "코어 돌파 완료";
       run.objectiveProgress = 1;
-      run.objectiveDetail = "Prepare for the warden.";
+      run.objectiveDetail = "워든전에 대비하세요.";
       return;
     }
     if (stabilizer.state === "shielded") {
       run.objectiveLabel = `Expose stabilizer ${stage.activeIndex + 1} of ${stage.stabilizers.length}`;
       run.objectiveProgress = stabilizer.charge;
-      run.objectiveDetail = "Hold E inside the stabilizer ring to open its plating.";
+      run.objectiveDetail = "안정화 장치 링 안에서 E를 길게 눌러 장갑을 여세요.";
     } else {
       run.objectiveLabel = `Destroy stabilizer ${stage.activeIndex + 1} of ${stage.stabilizers.length}`;
       run.objectiveProgress = 1 - clamp(stabilizer.hp / stabilizer.maxHp, 0, 1);
-      run.objectiveDetail = "Unload fire before the shell seals shut.";
+      run.objectiveDetail = "외피가 닫히기 전에 화력을 집중하세요.";
     }
   }
 
@@ -1023,7 +1023,7 @@
     player.heat += 12 * run.difficultyData.heatGain * (player.overdriveActive > 0 ? 0.76 : 1);
     if (player.heat >= player.heatMax) {
       player.overheated = true;
-      showToast("Weapon core overheated.");
+      showToast("무기 코어가 과열되었습니다.");
       audio.play("warn");
     }
     audio.play("shoot", Math.cos(baseAngle) * 0.25);
@@ -1106,7 +1106,7 @@
       playerHit: false,
       cartHit: false,
     });
-    showToast("Storm sweep incoming.");
+    showToast("폭풍 소탕이 접근 중입니다.");
     audio.play("warn");
   }
 
@@ -1190,10 +1190,10 @@
     }
     audio.play("hit", sourceX != null ? clamp((sourceX - player.x) / 400, -1, 1) : 0);
     if (player.hp > 0 && player.hp <= 28 && player.repairCharges > 0) {
-      showToast("Hull critical. Press R to spend a repair charge.", 2.2, "high");
+      showToast("선체 위험! R을 눌러 수리 충전을 사용하세요.", 2.2, "high");
     }
     if (player.hp <= 0) {
-      endRun(run, false, "The relay chain collapsed before the core re-lit.");
+      endRun(run, false, "코어 재점화 전에 릴레이 연쇄가 붕괴했습니다.");
     }
   }
 
@@ -1204,7 +1204,7 @@
     addCameraShake(run, 7);
     flash(run, 0.18);
     if (cart.hp <= 0) {
-      endRun(run, false, "The signal cart was torn apart on the rail line.");
+      endRun(run, false, "신호 카트가 레일 구간에서 파괴되었습니다.");
     }
   }
 
@@ -1219,7 +1219,7 @@
     player.repairFlash = 0.7;
     gainOverdrive(run, 10);
     burst(run, player.x, player.y, "#98ffbd", 18, 180);
-    showToast("Emergency repair cycle complete.");
+    showToast("긴급 수리 사이클 완료.");
     audio.play("reward");
   }
 
@@ -1231,7 +1231,7 @@
     player.invuln = Math.max(player.invuln, 0.3);
     flash(run, 0.18);
     burst(run, player.x, player.y, "#9d71ff", 16, 210);
-    showToast("Overdrive engaged.");
+    showToast("오버드라이브 가동.");
     audio.play("clear");
   }
 
@@ -1681,7 +1681,7 @@
           burst(run, run.boss.x, run.boss.y, "#ffbd55", 48, 320);
           gainScore(run, config.enemyStats.warden.score);
           run.boss = null;
-          endRun(run, true, "The core flared back to life.");
+          endRun(run, true, "코어가 다시 점화되었습니다.");
           return;
         }
         bullet.pierce -= 1;
@@ -1713,7 +1713,7 @@
             run.stage.activeIndex += 1;
             updateCoreObjective(run);
             if (run.stage.activeIndex >= run.stage.stabilizers.length) {
-              offerUpgrade(run, "Sync a final perk before the warden phase", () => {
+              offerUpgrade(run, "워든 단계 전 마지막 특성을 동기화하세요", () => {
                 beginBoss(run);
               });
             } else {
@@ -1790,7 +1790,7 @@
         relay.interact = clamp(relay.interact + dt * 1.8 * run.assist.interactionSpeed, 0, 1);
         if (relay.interact >= 1) {
           relay.started = true;
-          showToast("Relay lattice engaged. Hold the ring.");
+          showToast("릴레이 격자 가동. 링을 유지하세요.");
           audio.play("clear");
         }
       } else {
@@ -1810,7 +1810,7 @@
         updateFoundryObjective(run);
         audio.play("clear");
         if (stage.activeIndex >= stage.relays.length) {
-          offerUpgrade(run, "Synchronize a relay perk", () => {
+          offerUpgrade(run, "릴레이 특성을 동기화하세요", () => {
             beginChapterRail(run);
           });
         } else {
@@ -1882,11 +1882,11 @@
         if (stage.checkpointCount === 1) {
           run.player.overdriveUnlocked = true;
           gainOverdrive(run, 100);
-          showBanner("Overdrive Unlocked", "Trigger it with Q when the lattice is full.");
-          showToast("First junction clear. Overdrive is online.");
+          showBanner("오버드라이브 해금", "격자가 가득 찼을 때 Q로 발동하세요.");
+          showToast("첫 분기점 확보. 오버드라이브 온라인.");
           audio.play("clear");
         } else if (stage.checkpointCount === 2) {
-          offerUpgrade(run, "Synchronize a convoy perk", () => {
+          offerUpgrade(run, "호위 특성을 동기화하세요", () => {
             stage.currentCheckpoint = null;
             cart.targetIndex += 1;
             updateRailObjective(run);
@@ -1930,7 +1930,7 @@
           if (stabilizer.charge >= 1) {
             stabilizer.state = "exposed";
             stabilizer.exposed = config.stabilizerExposeDuration;
-            showToast("Plating open. Fire into the core shell.");
+            showToast("장갑 개방. 코어 외피에 화력을 집중하세요.");
             audio.play("warn");
           }
         } else if (stabilizer.state === "exposed") {
@@ -1975,14 +1975,14 @@
         run.interactionPrompt = {
           x: relay.x,
           y: relay.y - relay.radius - 32,
-          text: "Hold E to wake relay",
+          text: "E 길게 눌러 릴레이 기동",
           emphasis: "interaction",
         };
       } else if (relay.started && !relay.complete && dist < config.objectiveRadius + 32) {
         run.interactionPrompt = {
           x: relay.x,
           y: relay.y - relay.radius - 32,
-          text: "Stay inside the ring",
+          text: "링 안을 유지",
           emphasis: "objective",
         };
       }
@@ -1991,14 +1991,14 @@
         run.interactionPrompt = {
           x: run.stage.currentCheckpoint.x,
           y: run.stage.currentCheckpoint.y - 72,
-          text: "Hold E to patch junction",
+          text: "E 길게 눌러 분기점 복구",
           emphasis: "interaction",
         };
       } else if (distance(run.player, run.stage.cart) > 220) {
         run.interactionPrompt = {
           x: run.stage.cart.x,
           y: run.stage.cart.y - 62,
-          text: "Stay near the signal cart",
+          text: "신호 카트 근처 유지",
           emphasis: "warning",
         };
       }
@@ -2010,14 +2010,14 @@
         run.interactionPrompt = {
           x: stabilizer.x,
           y: stabilizer.y - stabilizer.radius - 36,
-          text: "Hold E to expose core",
+          text: "E 길게 눌러 코어 노출",
           emphasis: "interaction",
         };
       } else if (stabilizer.state === "exposed" && dist < 220) {
         run.interactionPrompt = {
           x: stabilizer.x,
           y: stabilizer.y - stabilizer.radius - 36,
-          text: "Shell open. Burst it down.",
+          text: "외피 개방. 집중 사격하세요.",
           emphasis: "warning",
         };
       }
@@ -2027,7 +2027,7 @@
       run.interactionPrompt = {
         x: run.player.x,
         y: run.player.y - 56,
-        text: "Press Q to trigger overdrive",
+        text: "Q를 눌러 오버드라이브 발동",
         emphasis: "warning",
       };
     }
@@ -2532,12 +2532,12 @@
     if (run.helpTimer <= 0) return;
     const alpha = clamp(run.helpTimer / 3, 0, 1);
     const hint = run.chapterId === "foundry"
-      ? "WASD move, Left click fire, Space dash, E interact"
+      ? "WASD 이동, 좌클릭 발사, Space 대시, E 상호작용"
       : run.chapterId === "rail"
-        ? "Guard the cart, patch checkpoints with E, and dodge storm bands"
+        ? "카트를 지키고 E로 점검지점을 복구하며 폭풍 지대를 피하세요"
         : run.stage && run.stage.phase === "boss"
-          ? "Overdrive with Q, dash through pulses, and punish beam gaps"
-          : "Expose stabilizers with E, then burst the shell before it reseals";
+          ? "Q 오버드라이브, 파동 대시, 빔 빈틈 공략"
+          : "E로 안정화 장치를 노출한 뒤 재봉인 전에 외피를 파괴하세요";
     const width = 520;
     const x = (config.width - width) / 2;
     const y = config.height - 54;
@@ -2599,11 +2599,11 @@
   function updateHud() {
     const run = state.run;
     if (!run) {
-      dom.chapterLabel.textContent = "Stand by";
-      dom.objectiveLabel.textContent = "Wake the relay lattice.";
-      dom.objectiveDetailLabel.textContent = "Step into the ring and hold E to sync.";
-      dom.contextLabel.textContent = "Move with WASD. Enter the ring and hold E.";
-      dom.threatLabel.textContent = "Nominal";
+      dom.chapterLabel.textContent = "대기 중";
+      dom.objectiveLabel.textContent = "릴레이 격자를 기동하세요.";
+      dom.objectiveDetailLabel.textContent = "링 안으로 들어가 E를 길게 눌러 동기화하세요.";
+      dom.contextLabel.textContent = "WASD로 이동 후 링 안에서 E를 길게 누르세요.";
+      dom.threatLabel.textContent = "안정";
       dom.threatLabel.dataset.threat = "low";
       dom.objectiveFill.style.width = "0%";
       dom.scoreLabel.textContent = "0";
@@ -2611,8 +2611,8 @@
       dom.hpLabel.textContent = "100";
       dom.barrierLabel.textContent = "60";
       dom.heatLabel.textContent = "0%";
-      dom.dashLabel.textContent = "Ready";
-      dom.overdriveLabel.textContent = "Locked";
+      dom.dashLabel.textContent = "준비 완료";
+      dom.overdriveLabel.textContent = "잠김";
       dom.repairsLabel.textContent = "2";
       dom.hpFill.style.width = "100%";
       dom.barrierFill.style.width = "100%";
@@ -2628,10 +2628,10 @@
     const nearbyEnemies = run.enemies.filter((enemy) => Math.hypot(enemy.x - player.x, enemy.y - player.y) <= dangerDistance).length;
     const dangerScore = (1 - hpRatio) * 0.5 + (1 - barrierRatio) * 0.18 + (nearbyEnemies >= 5 ? 0.25 : nearbyEnemies * 0.05);
     const threatLevel = dangerScore >= 0.58 ? "high" : dangerScore >= 0.32 ? "medium" : "low";
-    const threatText = threatLevel === "high" ? "Critical" : threatLevel === "medium" ? "Elevated" : "Nominal";
+    const threatText = threatLevel === "high" ? "위험" : threatLevel === "medium" ? "경계" : "안정";
     const immediateAction = player.hp <= player.maxHp * 0.35 && player.repairCharges > 0
-      ? "Hull critical. Press R to consume a repair charge."
-      : (run.objectiveDetail || "Track the objective marker and maintain spacing.");
+      ? "선체 위험! R로 수리 충전을 사용하세요."
+      : (run.objectiveDetail || "목표 마커를 추적하며 간격을 유지하세요.");
     dom.chapterLabel.textContent = run.chapterName;
     dom.objectiveLabel.textContent = run.objectiveLabel;
     dom.objectiveDetailLabel.textContent = run.objectiveDetail;
@@ -2644,8 +2644,8 @@
       dom.hpLabel.textContent = Math.max(0, Math.ceil(player.hp));
       dom.barrierLabel.textContent = Math.max(0, Math.ceil(player.barrier));
     dom.heatLabel.textContent = `${Math.round(clamp(player.heat / player.heatMax, 0, 1) * 100)}%`;
-    dom.dashLabel.textContent = player.dashCooldown <= 0 ? "Ready" : `${player.dashCooldown.toFixed(1)}s`;
-    dom.overdriveLabel.textContent = player.overdriveUnlocked ? (player.overdriveActive > 0 ? "Active" : `${Math.round(player.overdrive)}%`) : "Locked";
+    dom.dashLabel.textContent = player.dashCooldown <= 0 ? "준비 완료" : `${player.dashCooldown.toFixed(1)}초`;
+    dom.overdriveLabel.textContent = player.overdriveUnlocked ? (player.overdriveActive > 0 ? "가동" : `${Math.round(player.overdrive)}%`) : "잠김";
     dom.repairsLabel.textContent = String(player.repairCharges);
       dom.hpFill.style.width = `${Math.round(hpRatio * 100)}%`;
       dom.barrierFill.style.width = `${Math.round(barrierRatio * 100)}%`;
@@ -2655,16 +2655,16 @@
   }
 
   function medalForRun(run) {
-    if (!run.result || !run.result.victory) return "Shard";
-    if (run.difficultyKey === "overclock") return "Prime";
-    if (run.elapsed <= 620) return "Gold";
-    if (run.elapsed <= 720) return "Silver";
-    return "Bronze";
+    if (!run.result || !run.result.victory) return "파편";
+    if (run.difficultyKey === "overclock") return "프라임";
+    if (run.elapsed <= 620) return "골드";
+    if (run.elapsed <= 720) return "실버";
+    return "브론즈";
   }
 
   function endRun(run, victory, copy) {
     if (run.result) return;
-    const medal = victory ? medalForRun({ ...run, result: { victory: true } }) : "Shard";
+    const medal = victory ? medalForRun({ ...run, result: { victory: true } }) : "파편";
     run.result = { victory, copy, medal };
     if (victory) {
       state.records.clears += 1;
@@ -2675,15 +2675,15 @@
       }
       persistState();
       audio.play("clear");
-      showBanner("Core reignited", "The city holds another dawn.");
+      showBanner("코어 재점화", "도시는 또 한 번 새벽을 맞았습니다.");
     } else {
       state.records.bestScore = Math.max(state.records.bestScore || 0, Math.floor(run.score));
       persistState();
       audio.play("gameOver");
-      showBanner("Relay lost", "The blackout took the line.");
+      showBanner("릴레이 상실", "정전이 라인을 집어삼켰습니다.");
     }
-    dom.resultKicker.textContent = victory ? "Run complete" : "Run failed";
-    dom.resultTitle.textContent = victory ? "The city breathes again." : "The line broke in the dark.";
+    dom.resultKicker.textContent = victory ? "런 완료" : "런 실패";
+    dom.resultTitle.textContent = victory ? "도시가 다시 숨을 쉽니다." : "어둠 속에서 라인이 무너졌습니다.";
     dom.resultCopy.textContent = copy;
     dom.resultScore.textContent = formatScore(run.score);
     dom.resultTime.textContent = formatTime(run.elapsed);
