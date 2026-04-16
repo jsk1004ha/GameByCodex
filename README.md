@@ -1,42 +1,42 @@
 # Null Relay
 
-Null Relay is a self-contained single-player tactical action run built with plain HTML, CSS, and JavaScript.
+Null Relay는 순수 HTML, CSS, JavaScript로 만든 싱글플레이 전술 액션 런 게임입니다.
 
-## Run
+## 실행 방법
 
-1. Open `index.html` directly in a modern desktop browser.
-2. Or serve the folder with any static server, then open the local URL.
+1. 최신 데스크톱 브라우저에서 `index.html`을 직접 엽니다.
+2. 또는 정적 서버로 폴더를 서빙한 뒤 로컬 URL로 접속합니다.
 
-No network connection, build step, dependency install, or external assets are required.
+네트워크 연결, 빌드 단계, 의존성 설치, 외부 에셋이 필요하지 않습니다.
 
-## Controls
+## 조작
 
-- `WASD`: move
-- `Mouse`: aim
-- `Left click`: fire
-- `Space`: dash
-- `E`: interact with relays, rail junctions, and stabilizers
-- `R`: consume a repair charge
-- `Q`: trigger overdrive after it unlocks
-- `Esc`: pause / resume
-- `F`: toggle fullscreen
-- `1`, `2`, `3`: pick upgrade cards
+- `WASD`: 이동
+- `마우스`: 조준
+- `좌클릭`: 발사
+- `Space`: 대시
+- `E`: 릴레이, 레일 분기점, 안정화 장치 상호작용
+- `R`: 수리 충전 사용
+- `Q`: 해금 후 오버드라이브 발동
+- `Esc`: 일시정지 / 재개
+- `F`: 전체화면 전환
+- `1`, `2`, `3`: 업그레이드 카드 선택
 
-## Features
+## 주요 특징
 
-- Three-chapter action run with a clear start, escalation, climax, and ending
-- Sequential objective changes: relay defense, convoy escort, stabilizer breach, boss fight
-- Layered combat HUD with persistent stats, immediate action guidance, and live threat level reads
-- Eight upgrade perks with three draft moments
-- Three difficulty settings, persistent best score / best clear time / clear count
-- Audio controls, mute, high contrast HUD, large HUD, reduced shake, reduced flash, and stronger keyboard focus outlines
-- Procedural visuals and Web Audio generated sound effects only
+- 시작-전개-클라이맥스-엔딩으로 이어지는 3개 챕터
+- 릴레이 방어, 카트 호위, 안정화 장치 돌파, 보스전으로 이어지는 순차 목표
+- 지속 스탯, 즉시 행동 가이드, 실시간 위협 상태를 포함한 레이어형 HUD
+- 8개 업그레이드 특성과 3회 드래프트 선택
+- 3단계 난이도, 최고 점수 / 최단 클리어 / 클리어 횟수 영구 저장
+- 오디오 조절, 음소거, 고대비 HUD, HUD 확대, 흔들림 감소, 번쩍임 감소, 키보드 포커스 강조
+- 절차 생성 비주얼과 Web Audio 기반 효과음
 
-## Saving
+## 저장
 
-The game stores settings and records in local storage under `null-relay-save-v1`.
+게임 설정과 기록은 로컬 스토리지 `null-relay-save-v1` 키에 저장됩니다.
 
-## Recommended environment
+## 권장 환경
 
-- Desktop browser with keyboard and mouse
-- Recent Chromium, Firefox, or Safari build
+- 키보드와 마우스를 사용하는 데스크톱 브라우저
+- 최신 Chromium, Firefox, Safari
